@@ -16,6 +16,18 @@
 
 LOCAL_PATH := device/samsung/chagallwifi
 
+# BlissPop Configs
+TARGET_TC_ROM := 4.8
+TARGET_TC_KERNEL := 4.8
+BLISSIFY := true
+BLISS_O3 := true
+BLISS_STRICT := true
+BLISS_GRAPHITE := true
+BLISS_KRAIT := true
+BLISS_PIPE := true
+TARGET_GCC_VERSION_EXP := $(TARGET_TC_ROM)
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
@@ -58,9 +70,9 @@ COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogenmod_chagallwifi_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/chagallwifi
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
+TARGET_KERNEL_CONFIG := deathly_chagallwifi_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/deathly
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 #TARGET_PREBUILT_KERNEL := device/samsung/chagallwifi/kernel
 
 # Charging mode
@@ -195,3 +207,4 @@ BOARD_ANT_WIRELESS_POWER := "bluedroid"
 
 # inherit from the proprietary version
 -include vendor/samsung/chagallwifi/BoardConfigVendor.mk
+-include vendor/bliss/config/sm.mk
